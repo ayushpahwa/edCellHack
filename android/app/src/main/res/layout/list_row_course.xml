@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/static_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Course:"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/static_course_name"
+        android:text="UCS401"
+        android:layout_marginStart="32dp"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/static_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group:"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/text_course_name"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/static_group_name"
+        android:layout_below="@id/text_course_name"
+        android:layout_alignStart="@id/text_course_name"
+        android:layout_marginTop="16dp"
+        android:text="CAG1"
+        android:textSize="28sp" />
+
+</RelativeLayout>
