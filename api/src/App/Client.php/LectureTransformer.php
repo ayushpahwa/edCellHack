@@ -27,7 +27,9 @@ class LectureTransformer extends Fractal\TransformerAbstract
             "id" => (integer)$lecture->lecture_id ?: 0,
             "classroom_id" => (integer)$lecture->classroom_id?:0,
             "group_id" => (integer)$lecture->group_id?:0,
+            "teacher_id" => (integer)$lecture->teacher_id?:0,
             "status" => (string)$lecture->status?:null,
+            "rating" => (string)$lecture->status?:null,
                ]
         ];
     }

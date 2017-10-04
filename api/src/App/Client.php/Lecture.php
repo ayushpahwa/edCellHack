@@ -30,7 +30,10 @@ class Lecture extends \Spot\Entity
             "lecture_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
             "classroom_id" => ["type" => "integer","unsigned" => true],
             "group_id" => ["type" => "integer","unsigned" => true],
-            "status" => ["type" => "string"]
+            "teacher_id" => ["type" => "integer","unsigned" => true],
+            "status" => ["type" => "string"],
+            "rating" => ["type" => "decimal"]
+
         ];
     }
 
@@ -41,6 +44,8 @@ class Lecture extends \Spot\Entity
             'Classroom' => $mapper->hasMany($entity, 'App\Classroom', 'classroom_id'),
             'Group' => $mapper->hasMany($entity, 'App\Group', 'group_id'),
             'Lecture_Topic' => $mapper->hasMany($entity, 'App\Lecture_Topic', 'lecture_id'),
+            'Teacher' => $mapper->hasMany($entity, 'App\Lecture_Topic', 'lecture_id'),
+
 
 
         ];
