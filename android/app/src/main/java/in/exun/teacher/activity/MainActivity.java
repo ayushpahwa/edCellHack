@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public RelativeLayout viewChangeState;
     private AlertDialog alert;
     private List<Course> courseList = new ArrayList<>();
+    private Course selectedCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // TODO: Get all courses of the teacher
                 showAvailableCoursesDialog();
             }
         });
@@ -82,20 +84,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                // TODO: Send add lecture call
 
+                selectedCourse = courseList.get(position);
+                alert.dismiss();
 
             }
         });
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this)
                 .setView(convertView)
-                .setTitle("Settings")
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                     }
                 })
-                .setCancelable(true);
+                .setCancelable(false);
+
+        alert = alertDialog.create();
+        alert.show();
+    }
+
+    private void showAddTopicsDialog() {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = (View) inflater.inflate(R.layout.comp_add_topics, null);
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this)
+                .setView(convertView)
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false);
 
         alert = alertDialog.create();
         alert.show();
