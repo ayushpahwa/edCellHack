@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.exun.teacher.activity.StatsActivity">
+
+    <RelativeLayout
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/static_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feedback data"
+            android:textColor="#fff"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/static_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/static_title"
+            android:layout_marginTop="16dp"
+            android:text="Course code:"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/static_title"
+            android:layout_margin="16dp"
+            android:layout_toEndOf="@id/static_code"
+            android:text="UCS704"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/static_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/static_code"
+            android:layout_marginTop="8dp"
+            android:text="Group:"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/text_code"
+            android:layout_below="@id/static_code"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/static_code"
+            android:text="SE1"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/static_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/static_group"
+            android:layout_marginTop="8dp"
+            android:text="Date:"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/text_group"
+            android:layout_below="@id/static_group"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/static_group"
+            android:text="2017-10-03"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/static_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Students present:"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/static_present"
+                android:text="43"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/static_present"
+                android:layout_marginTop="16dp"
+                android:background="#d7d7d7" />
+
+            <TextView
+                android:id="@+id/static_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider2"
+                android:layout_marginTop="16dp"
+                android:text="Experience distribution of students for the lecture"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph2"
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:layout_below="@id/static_experience"
+                android:layout_marginTop="16dp" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/graph2"
+                android:layout_marginTop="16dp"
+                android:background="#d7d7d7" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/graph2"
+                android:layout_marginTop="16dp"
+                android:background="#d7d7d7" />
+
+            <TextView
+                android:id="@+id/static_clarity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider1"
+                android:layout_marginTop="16dp"
+                android:text="Clarity of topics taught in class"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph1"
+                android:layout_width="match_parent"
+                android:layout_height="200dip"
+                android:layout_below="@id/static_clarity"
+                android:layout_marginTop="16dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

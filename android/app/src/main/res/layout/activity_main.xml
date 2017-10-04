@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.exun.teacher.activity.MainActivity">
 
     <RelativeLayout
@@ -47,6 +47,7 @@
         android:baselineAligned="false">
 
         <LinearLayout
+            android:id="@+id/btn_history"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -113,11 +114,28 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/static_graph_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Average lecture experience over past 5 days"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:layout_below="@id/static_data"/>
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        app:seriesType="line"
+        android:visibility="gone"
+        android:layout_below="@id/static_graph_text" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/static_data">
+        android:layout_below="@id/graph">
 
         <Button
             android:id="@+id/btn_lecture"
@@ -130,7 +148,8 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/view_change_status"
@@ -139,19 +158,30 @@
             android:layout_centerVertical="true"
             android:visibility="gone">
 
+            <View
+                android:id="@+id/divider_hori"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d7d7d7"
+                android:layout_marginBottom="16dp"/>
+
             <TextView
+                android:layout_below="@id/divider_hori"
                 android:id="@+id/static_change_state"
-                android:text="Change status"
-                android:layout_centerHorizontal="true"
+                android:text="Change lecture status:"
+                android:layout_marginStart="16dp"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <android.support.v7.widget.AppCompatSpinner
+                android:layout_below="@id/divider_hori"
                 android:id="@+id/spinner_change_state"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/static_change_state"
-                android:layout_margin="16dp"
+                android:layout_toEndOf="@id/static_change_state"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -160,11 +190,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@android:color/transparent"
+                android:background="@color/colorPrimary"
                 android:padding="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Done"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent"
+                android:textColor="#fff"
                 android:layout_below="@id/spinner_change_state"
                 android:textSize="18sp" />
 
