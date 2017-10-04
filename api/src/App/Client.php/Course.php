@@ -29,15 +29,14 @@ class Course extends \Spot\Entity
         return [
             "course_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
             "course_code" => ["type" => "string"]
-            ];
+        ];
     }
 
-     public static function relations(Mapper $mapper, Entity $entity) {
+    public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+            'Topic' => $mapper->hasManyTrough($entity, 'App\Topic', 'course_id'),
+            'Classroom' => $mapper->hasManyThrough($entity, 'App\Classroom', 'course_id'),
+            'Attendance' => $mapper->hasManyThrough($entity, 'App\Attendance', 'course_id')
         ];
     }
 }

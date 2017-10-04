@@ -29,15 +29,19 @@ class Topic extends \Spot\Entity
         return [
             "topic_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
             "topic_name" => ["type" => "string"],
-            "course_no" => ["type" => "integer","unsigned" => true]
-            ];
+            "course_id" => ["type" => "integer","unsigned" => true]
+        ];
     }
 
-     public static function relations(Mapper $mapper, Entity $entity) {
+    public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Course' => $mapper->belongsto($entity, 'App\Course', 'course_id'),
-        
-        
+            'Course' => $mapper->belongsto($entity, 'App\Course', 'course_id'),
+            'Lecture_Topic' => $mapper->hasMany($entity, 'App\Lecture_Topic','topic_id'),
+            'Feedback_Topic' => $mapper->hasMany($entity, 'App\Feedback_Topic','topic_id'),
+
+   
+
+
         ];
     }
 }

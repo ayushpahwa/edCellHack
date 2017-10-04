@@ -38,10 +38,14 @@ class Student extends \Spot\Entity
 
      public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+        'Group' => $mapper->belongsto($entity, 'App\Student', 'group_id'),
+        'Classroom' => $mapper->belongsto($entity, 'App\Classroom', 'student_id'),
+        'Feedback' => $mapper->hasMany($entity, 'App\Feedback', 'student_id'),
+        'Feedback_Topic' => $mapper->hasMany($entity, 'App\Feedback_Topic', 'student_id'),
+        'Attendance' => $mapper->hasMany($entity, 'App\Attendance', 'student_id'),
+
+
+
         ];
     }
 }

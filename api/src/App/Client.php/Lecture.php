@@ -31,15 +31,18 @@ class Lecture extends \Spot\Entity
             "classroom_id" => ["type" => "integer","unsigned" => true],
             "group_id" => ["type" => "integer","unsigned" => true],
             "status" => ["type" => "string"]
-            ];
+        ];
     }
 
-     public static function relations(Mapper $mapper, Entity $entity) {
+    public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+            'Feedback_Topic' => $mapper->hasMany($entity, 'App\Feedback_Topic', 'lecture_id'),
+            'Feedback' => $mapper->hasMany($entity, 'App\Feedback', 'lecture_id'),
+            'Classroom' => $mapper->hasMany($entity, 'App\Classroom', 'classroom_id'),
+            'Group' => $mapper->hasMany($entity, 'App\Group', 'group_id'),
+            'Lecture_Topic' => $mapper->hasMany($entity, 'App\Lecture_Topic', 'lecture_id'),
+
+
         ];
     }
 }

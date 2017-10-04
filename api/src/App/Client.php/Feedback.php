@@ -34,15 +34,14 @@ class Feedback extends \Spot\Entity
             "improvements" => ["type" => "string"],
             "teacher_feedback" => ["type" => "string"]
 
-            ];
+        ];
     }
 
-     public static function relations(Mapper $mapper, Entity $entity) {
+    public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+            'Student' => $mapper->hasMany($entity, 'App\Student', 'student_id'),
+            'Lecture' => $mapper->hasMany($entity, 'App\Lecture', 'lecture_id')
+
         ];
     }
 }

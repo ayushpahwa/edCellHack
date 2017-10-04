@@ -36,10 +36,8 @@ class Lecture_Topic extends \Spot\Entity
 
      public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+        'Lecture' => $mapper->belongsto($entity, 'App\Lecture', 'lecture_id'),
+        'Topic' => $mapper->belongsto($entity, 'App\Topic', 'topic_id')
         ];
     }
 }

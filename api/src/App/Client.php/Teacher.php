@@ -20,25 +20,25 @@ use Spot\EventEmitter;
 use Spot\MapperInterface as Mapper;
 use Tuupola\Base62;
 
-class Group extends \Spot\Entity
+class Teacher extends \Spot\Entity
 {
-    protected static $table = "groups";
+    protected static $table = "teachers";
 
     public static function fields()
     {
         return [
-            "group_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
-            "branch" => ["type" => "string"],
-            "number" => ["type" => "string"],
-            "year" => ["type" => "string"]
-            ];
+            "teacher_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
+            "teacher_name" => ["type" => "string"],
+            "teacher_email" => ["type" => "string"],
+            "teacher_phone" => ["type" => "integer", "unsigned" => true],
+            "teacher_device_id" => ["type" => "integer", "unsigned" => true]
+       ];
     }
 
      public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
+        'Classroom' => $mapper->hasMany($entity, 'App\Course', 'teacher_id'),
+
         
         ];
     }

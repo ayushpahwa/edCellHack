@@ -29,17 +29,18 @@ class Feedback_Topic extends \Spot\Entity
         return [
             "feedback_topic_id" => ["type" => "integer", "unsigned" => true, "primary" => true, "autoincrement" => true],
             "lecture_id" => ["type" => "integer","unsigned" => true],
+            "student_id" => ["type" => "integer","unsigned" => true],
             "topic_id" => ["type" => "integer","unsigned" => true],
             "rating" => ["type" => "decimal","unsigned" => true]
-            ];
+        ];
     }
 
-     public static function relations(Mapper $mapper, Entity $entity) {
+    public static function relations(Mapper $mapper, Entity $entity) {
         return [
-        'Review' => $mapper->hasMany($entity, 'App\Reviews', 'user_id'),
-        'Question' => $mapper->hasMany($entity, 'App\Discussion_Questions', 'user_id'),
-        'Answer' => $mapper->hasMany($entity, 'App\Discussion_Answers', 'user_id')
-        
+            'Lecture' => $mapper->hasMany($entity, 'App\Lecture', 'lecture_id'),
+            'Topic' => $mapper->hasMany($entity, 'App\Topic', 'topic_id'),
+            'Student' => $mapper->hasMany($entity, 'App\Student', 'student_id')
+
         ];
     }
 }
