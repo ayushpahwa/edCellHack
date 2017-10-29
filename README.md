@@ -1,4 +1,4 @@
-EDCell Hackthon
+ED Cell Hackthon
 
 The main purpose of a hackthon is to innovate and create meaningful projects.
 It revolves around finding a unique and better solution to everyday problems.
